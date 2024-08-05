@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Paws Fund</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url('@Url.Content("~/images/paws.jpg")') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: 'Baskervville SC', serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            padding: 10px;
+        }
+
+        .nav-link {
+            color: white;
+            margin-right: 10px;
+        }
+
+        .vote-form, .stats, .footer-text {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px; /* Reduced padding */
+            background-color: rgba(0, 0, 0, 0.7); /* Luxurious dark background */
+            border-radius: 10px;
+            color: white;
+        }
+
+        .stat {
+            flex: 1;
+            margin: 0 10px;
+            padding: 10px; /* Reduced padding */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            text-align: center;
+            border-radius: 10px;
+            font-size: 1em; /* Reduced font size */
+        }
+
+        .footer-text {
+            font-size: 1.2em; /* Increased font size */
+            max-height: 3em;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+            .footer-text.expanded {
+                max-height: 100em;
+            }
+
+        .toggle-button {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+            text-align: center;
+            display: block;
+            margin: 10px auto;
+        }
+
+        h2, h3 {
+            color: black;
+        }
+
+        .large-text, .paragraph-text {
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .adsense-ad {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .sponsored-ad {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Luxurious dark background */
+            color: white;
+            border-radius: 10px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8441848706191811" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="site-title">Save Paws - Empowering Change Through Your Votes and Ad Views</h1>
+            <nav class="top-nav">
+                <a href="/" class="nav-link">Share:</a>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" class="nav-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" class="nav-link"><i class="fab fa-facebook"></i></a>
+                </div>
+                <a href="https://sites.google.com/view/cyberdenntechnology/home" class="nav-link" target="_blank">Team</a>
+                <a href="https://www.paypal.com/pools/c/96MDHRbWSt" class="nav-link" target="_blank">Donate</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <div>
+            <form action="/Vote/Vote" method="post" class="vote-form">
+                <div class="form-group">
+                    <label for="shelterName">Select a Verified Organization:</label>
+                    <select id="shelterName" name="shelterName">
+                        <option value="Catio Cat Lounge">Catio Cat Lounge</option>
+                        <option value="Metro Animal Care">Metro Animal Care</option>
+                        <option value="Nashville Humane Association">Nashville Humane Association</option>
+                        <option value="New Leash on Life- Home of The JOY Clinic">New Leash on Life- Home of The JOY Clinic</option>
+                        <option value="Noah's Ark Society Rescue">Noah's Ark Society Rescue</option>
+                        <option value="Pets Alive Austin">Pets Alive Austin</option>
+                        <option value="Proverbs 12:10 Animal Rescue">Proverbs 12:10 Animal Rescue</option>
+                        <option value="Rutherford County Pet Adoption">Rutherford County Pet Adoption</option>
+                        <option value="Wags & Walks Nashville">Wags & Walks Nashville</option>
+                        <option value="Love At First Sight">Love At First Sight</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="voterName">Enter Your Email:</label>
+                    <input type="text" id="voterName" name="voterName" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Vote</button>
+                </div>
+            </form>
+
+            <div class="income-info" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px; border-radius: 10px; text-align: center; font-size: 1.2em;">
+                <p>Top 10 voters each month receive a special reward. Thank you for supporting our cause!</p>
+            </div>
+
+
+            <!-- AdSense Ad Unit -->
+            <div class="adsense-ad">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8441848706191811"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <!-- Sponsored Ad -->
+            <div class="sponsored-ad">
+                <h3>Sponsored Ad</h3>
+                <p>This space is for sponsored advertisements.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <strong>$11,300</strong>
+                    <br>Donations
+                </div>
+                <div class="stat">
+                    <strong>40,000</strong>
+                    <br>Site Views
+                </div>
+                <div class="stat">
+                    <strong>10</strong>
+                    <br>Shelters
+                </div>
+                <div class="stat">
+                    <strong>300</strong>
+                    <br>Rescued
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="pet-of-the-month footer-text" id="footerText">
+            <h2 class="large-text">All Ad Profits are Donated.</h2>
+            <h3 class="paragraph-text">By viewing ads, you help generate revenue for animal shelters and rescues. Users can vote for their favorite shelter, and the funds are distributed based on these votes at the end of the month. Your engagement supports animals even if you can't afford to donate directly. Every interaction helps!</h3>
+        </div>
+        <div class="toggle-button" id="toggleButton">Learn More</div>
+        <div>© 2024 - SavePaws - <a href="/Home/Privacy" style="color:white;">Privacy</a></div>
+    </footer>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function () {
+            var footerText = document.getElementById('footerText');
+            footerText.classList.toggle('expanded');
+            this.textContent = footerText.classList.contains('expanded') ? 'See Less' : 'See More';
+        });
+    </script>
+</body>
+</html>
+
